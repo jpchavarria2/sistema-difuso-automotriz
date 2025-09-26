@@ -2,20 +2,20 @@
 
 Un sistema de diagnóstico basado en lógica difusa, desarrollado en Python. Utiliza una interfaz gráfica con Tkinter para simular y visualizar cómo se determina la urgencia de una revisión mecánica a partir de variables continuas como la temperatura del motor y la presión del aceite.
 
-
-
 ---
 
 ## Tabla de contenidos
 
-- [Introducción](#introducción)
-- [Características](#características)
-- [Instalación](#instalación)
-- [Uso](#uso)
-- [Modelo de Lógica Difusa](#modelo-de-lógica-difusa)
-  - [Variables de Entrada](#variables-de-entrada)
-  - [Variable de Salida](#variable-de-salida)
-- [Base de Conocimiento (Reglas Difusas)](#base-de-conocimiento-reglas-difusas)
+- [Sistema de Diagnóstico Difuso Automotriz](#sistema-de-diagnóstico-difuso-automotriz)
+  - [Tabla de contenidos](#tabla-de-contenidos)
+  - [Introducción](#introducción)
+  - [Características](#características)
+  - [Instalación](#instalación)
+  - [Uso](#uso)
+  - [Modelo de Lógica Difusa](#modelo-de-lógica-difusa)
+    - [Variables de Entrada](#variables-de-entrada)
+    - [Variable de Salida](#variable-de-salida)
+  - [Base de Conocimiento (Reglas Difusas)](#base-de-conocimiento-reglas-difusas)
 
 ---
 
@@ -38,15 +38,20 @@ El sistema está implementado con la biblioteca `scikit-fuzzy` y visualiza en ti
 
 ## Instalación
 
-1.  **Clona el repositorio en tu máquina:**
+1. **Clona el repositorio en tu máquina:**
+
     ```bash
     git clone https://github.com/jpchavarria2/sistema-difuso-automotriz.git
     ```
-2.  **Navega al directorio del proyecto:**
+
+2. **Navega al directorio del proyecto:**
+
     ```bash
     cd sistema-difuso-automotriz
     ```
-3.  **Instala las dependencias necesarias:**
+
+3. **Instala las dependencias necesarias:**
+
     ```bash
     pip install scikit-fuzzy matplotlib numpy
     ```
@@ -55,13 +60,15 @@ El sistema está implementado con la biblioteca `scikit-fuzzy` y visualiza en ti
 
 ## Uso
 
-1.  Ejecuta el script `sd_autos.py` con Python.
+1. Ejecuta el script `sd_autos.py` con Python.
+
     ```bash
     python sd_autos.py
     ```
-2.  La interfaz se abrirá mostrando los controles y los gráficos.
-3.  Mueve los deslizadores de **Temperatura** y **Presión** para simular diferentes condiciones del vehículo.
-4.  Observa cómo el diagnóstico y los gráficos se actualizan en tiempo real reflejando el cálculo del sistema difuso.
+
+2. La interfaz se abrirá mostrando los controles y los gráficos.
+3. Mueve los deslizadores de **Temperatura** y **Presión** para simular diferentes condiciones del vehículo.
+4. Observa cómo el diagnóstico y los gráficos se actualizan en tiempo real reflejando el cálculo del sistema difuso.
 
 ---
 
@@ -71,12 +78,12 @@ El sistema se compone de dos variables de entrada (antecedentes) y una de salida
 
 ### Variables de Entrada
 
-1.  **Temperatura del Motor (°C):** Rango de `0` a `120`.
+1. **Temperatura del Motor (°C):** Rango de `0` a `120`.
     - `frio`: Temperatura por debajo de lo normal.
     - `normal`: Rango de operación óptimo.
     - `caliente`: Sobrecalentamiento.
 
-2.  **Presión de Aceite (PSI):** Rango de `0` a `100`.
+2. **Presión de Aceite (PSI):** Rango de `0` a `100`.
     - `baja`: Presión insuficiente, riesgo de daño.
     - `adecuada`: Nivel de presión correcto.
     - `alta`: Presión excesiva, puede indicar un problema.
@@ -94,8 +101,8 @@ El sistema se compone de dos variables de entrada (antecedentes) y una de salida
 
 El sistema toma decisiones basándose en las siguientes reglas de lógica difusa:
 
-| Regla                                                              | Diagnóstico Sugerido        |
-| ------------------------------------------------------------------ | --------------------------- |
+| Regla                                                                | Diagnóstico Sugerido                            |
+| -------------------------------------------------------------------- | ----------------------------------------------- |
 | `SI` la **temperatura** es `caliente` `O` la **presión** es `baja`   | `ENTONCES` la acción es **atención inmediata**. |
 | `SI` la **temperatura** es `normal` `Y` la **presión** es `adecuada` | `ENTONCES` la acción es **revisión de rutina**. |
 | `SI` la **temperatura** es `fria` `O` la **presión** es `alta`       | `ENTONCES` la acción es **precaución**.         |
